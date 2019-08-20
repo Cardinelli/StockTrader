@@ -17,8 +17,9 @@
                 </div>
                 <div class="pull-right">
                     <button class="btn btn-success"
-                    @click="buyStock"
-                    :disabled ="quantity <= 0 ">Buy</button>
+                            @click="buyStock"
+                            :disabled="quantity <= 0 ">Buy
+                    </button>
                 </div>
             </div>
         </div>
@@ -40,7 +41,7 @@
                     stockPrice: this.stock.price,
                     quantity: this.quantity
                 };
-                console.log(order);
+                this.$store.dispatch('buyStock', order);
                 this.quantity = 0;
             }
         }
