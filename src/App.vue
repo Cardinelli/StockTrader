@@ -24,12 +24,12 @@
 <style>
 
     body {
-        padding: 30px;
+        /*padding: 30px;*/
         color:white;
-        display: flex;
-        margin: auto;
-        width: 100vh;
-        height: 100vh;
+        /*display: flex;*/
+        /*margin: auto;*/
+        /*width: 100vh;*/
+        /*height: 100vh;*/
         background-color: #1b2735;
     }
 
