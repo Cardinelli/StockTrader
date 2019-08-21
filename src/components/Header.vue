@@ -2,7 +2,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <router-link to="/" class="navbar-brand"> Stock Trader </router-link>
+                <router-link to="/" class="navbar-brand"> Stock Trader</router-link>
             </div>
             <ul class="nav navbar-nav">
                 <router-link to="/portfolio" active-class="active" tag="li"><a> Portfolio </a></router-link>
@@ -10,7 +10,7 @@
             </ul>
             <strong class="navbar-text"> Funds: {{ funds }} <span> <i class="fas  fa-dollar-sign"></i></span> </strong>
             <ul class="nav navbar-nav navbar-right">
-                <li active-class="active"><a href="#"> End Day </a></li>
+                <li><a href="#" @click="endDay"> End Day </a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Save / Load
                         <span class="caret"></span></a>
@@ -26,10 +26,21 @@
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
+
+
     export default {
         computed: {
             funds() {
                 return this.$store.getters.funds;
+            }
+        },
+        methods: {
+            ...mapActions([
+                'randomizeStocks'
+            ]),
+            endDay() {
+                this.randomizeStocks();
             }
         }
     }
