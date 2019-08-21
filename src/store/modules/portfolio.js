@@ -46,7 +46,7 @@ const getters = {
         });
     },
     funds (state) {
-        return this.funds;
+        return state.funds;
     }
 };
 
