@@ -11,12 +11,15 @@
             <strong class="navbar-text"> Funds: {{ funds }} <span> <i class="fas  fa-dollar-sign"></i></span> </strong>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#" @click="endDay"> End Day </a></li>
-                <li class="dropdown">
+                <li class="dropdown"
+                    :class="{open: isDropdownOpen}"
+                    @click="isDropdownOpen = !isDropdownOpen"
+                >
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Save / Load
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
+                        <li><a href="#">Save</a></li>
+                        <li><a href="#">Load</a></li>
                     </ul>
                 </li>
             </ul>
@@ -30,6 +33,11 @@
 
 
     export default {
+        data() {
+            return {
+                isDropdownOpen: false
+            }
+        },
         computed: {
             funds() {
                 return this.$store.getters.funds;
